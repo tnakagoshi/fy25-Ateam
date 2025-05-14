@@ -1,0 +1,14 @@
+<table border="1">
+    <tr>
+        <th>氏名</th>
+        <th>メールアドレス</th>        
+        <th>メッセージ</th>
+    </tr>
+    {% for item in object_list %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.message }}</td>
+    </tr>
+    {% endfor %}
+</table>

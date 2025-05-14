@@ -1,0 +1,28 @@
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>氏名</th>
+        <th>給料</th>
+        <th>操作</th>
+    </tr>
+    {% for item in object_list %}
+    <tr>
+        <td>{{item.no}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.salary}}</td>
+        <td>
+            <a href="{% url 'update-employee' item.pk %}">編集</a>|
+            <a href="{% url 'delete-employee' item.pk %}">削除</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if is_paginated %}
+<br>
+<div class="pagination">
+<span class="step-links">
+    {% include 'employeelist/components/pagination.html' %}
+</span>
+</div>
+{% endif %}
